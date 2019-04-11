@@ -1,0 +1,16 @@
+.menu{
+    margin-top: 111px;
+    margin-left: 50px;
+    list-style-type: none;
+    text-align: left;
+    
+}
+
+.menu a.inactiveLink{
+    color: white;
+    text-decoration: none
+}
+.menu a.activeLink{
+    color: #3E92A3;
+    text-decoration: none
+}

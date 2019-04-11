@@ -1,0 +1,7 @@
+.mainbox{
+    grid-area: mainbox;
+    color: white;
+    height: 100%;
+    background-color: #00141E
+    
+  }

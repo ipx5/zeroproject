@@ -1,0 +1,6 @@
+.logo{
+    grid-area: logo;
+    height: 777%;
+    float: right;
+    margin-top: 20px
+   }
