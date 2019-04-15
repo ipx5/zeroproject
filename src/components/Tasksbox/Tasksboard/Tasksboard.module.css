@@ -1,0 +1,6 @@
+.board{
+    /* display: flex; */
+    border: 1px solid whitesmoke;
+    margin: 20px;
+    width: 400px
+}

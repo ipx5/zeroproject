@@ -5,22 +5,20 @@ import logo from './logo.svg'
 import Mainbox from './components/Mainbox/Mainbox'
 import Applogo from './components/Applogo/Applogo';
 import Header from './components/Header/Header'
-import Tasksbox from './components/Tasksbox/Taskbox'
-import {BrowserRouter, Route} from 'react-router-dom'
+import Tasksbox from './components/Tasksbox/Tasksbox'
+import {Route} from 'react-router-dom'
 
-export default function App(){
+
+export default function App(props){
   return (
-    <BrowserRouter>
       <div className="App">
         <Applogo src={logo}  alt="logo" />
-        <header className='app-header'><Header/></header>
-        <nav className='nav'><Sidebar/></nav>
+        <Header/>
+        <Sidebar/>
         <div className='content'>
-        <Route path='/' exact component={Mainbox}/>
-        <Route path='/tasks' component={Tasksbox}/>
+        <Route path='/' exact render = {()=><Mainbox cards={props.state.cards}/>}/>
+        <Route path='/tasks' render = {()=><Tasksbox cards={props.state.cards} tasks={props.state.tasks} addTask={props.addTask}/>}/>
         </div>
-        
       </div>
-    </BrowserRouter>
   );
 }

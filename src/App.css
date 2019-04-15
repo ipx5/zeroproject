@@ -12,20 +12,6 @@
   
 }
 
-.app-header{
-  grid-area: header;
-}
-
-.nav{
-  grid-area: nav;
-}
-
 .content{
   grid-area: content;
 }
-
-
-
-
-
-

@@ -1,0 +1,17 @@
+.nav{
+    grid-area: nav;
+    margin-top: 111px;
+    margin-left: 50px;
+    list-style-type: none;
+    text-align: left;
+    
+}
+
+.item a{
+    color: white;
+    text-decoration: none
+}
+.item a.activeLink{
+    color: #3E92A3;
+    text-decoration: none
+}
