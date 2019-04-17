@@ -5,16 +5,18 @@ import Task from './Task/Task'
 export default function Tasksbox(props){
     let tasksElement = props.tasks.map((task) => <Task key={task.id} name={task.name} text={task.text} />)
     let newTaskElement = React.createRef()
-
     let addTask=()=>{
-        let text=newTaskElement.current.value;
-        props.addTask(text)
+        props.addTask()
     }
-    
+    let onTaskChange=()=>{
+        let text= newTaskElement.current.value;
+        props.updateNewTaskText(text)
+
+    }
     return (
         <div>
             <div>
-                <textarea ref={newTaskElement}></textarea>
+                <textarea onChange={onTaskChange} ref={newTaskElement} value={props.newTaskText}></textarea>
             </div>
             <div>
                 <button onClick={addTask}>Add task</button>
@@ -24,4 +26,4 @@ export default function Tasksbox(props){
             </div>
         </div>
     )
-}
+} 
