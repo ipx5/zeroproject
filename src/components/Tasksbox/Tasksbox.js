@@ -7,7 +7,7 @@ export default function Tasksbox(props){
     return (
         <div className={b.tasksbox}>
         this is tasksbox
-            <Usersboard cards={props.cards}/>
+            <Usersboard users={props.users}/>
             <Tasksboard 
                 tasks={props.tasks} 
                 addTask={props.addTask} 
