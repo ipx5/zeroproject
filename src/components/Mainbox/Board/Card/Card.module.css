@@ -1,8 +1,9 @@
 .card{
-    display: flex;
-    flex-flow: row wrap;
+    
+    
     margin: 5px;
     height: 250px;
+    width: 200px;
     border-radius: 10%;
     background-color: #253031;
     /* align-items: stretch; */

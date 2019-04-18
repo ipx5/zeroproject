@@ -4,12 +4,11 @@ import User from './User/User'
 
 
 export default function Usersboard(props){
-    let cardsElement = props.cards.map((card) => 
-    <User key={card.id} name={card.cardholder.name}/>)
+    let usersElement = props.users.map((user) => 
+    <User key={user.id} name={user.name}/>)
     return (
         <div className={u.board}>
-        {cardsElement}
+        {usersElement}
         </div>
     )
 }
- 

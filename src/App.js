@@ -31,7 +31,7 @@ export default function App(props){
           }/>
         <Route path='/tasks' render = {()=>
           <Tasksbox 
-          cards={props.state.cards} 
+          users={props.state.users} 
           tasks={props.state.tasks}
           addTask={props.addTask}
           newTaskText={props.state.newTaskText} 
