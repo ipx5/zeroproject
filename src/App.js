@@ -1,4 +1,4 @@
-import React, {useEffect } from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Sidebar from './components/Sidebar/Sidebar'
 import logo from './logo.svg'
@@ -8,11 +8,16 @@ import Header from './components/Header/Header'
 import Tasksbox from './components/Tasksbox/Tasksbox'
 import {Route} from 'react-router-dom'
 
+
 export default function App(props){
   useEffect(() => {
-    fetch('/api/users/')
+      fetch('/api/users/')
       .then(res => res.json())
-      .then(users => props.state.users.push(users))})
+      .then(users => users.map((user)=>props.state.users.push(user)))
+  },[])
+
+  // console.log(props.state.users)
+  // debugger
 
   return (
       <div className="App">

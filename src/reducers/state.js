@@ -1,5 +1,4 @@
-
-
+import axios from 'axios'
 let renderEntireTree =()=>{}
 
 let state = {
@@ -60,6 +59,12 @@ export const updateNewTaskText =(newText)=>{
 
 export const subscribe=(observer)=>{
     renderEntireTree=observer;
+}
+
+export function fetchUsers(){
+    const response = axios.get('/api/users');
+    console.log(response)
+    response.map((res)=>state.users.push(res))
 }
 
 export default state;
