@@ -11,14 +11,10 @@ import {Route} from 'react-router-dom'
 
 export default function App(props){
   useEffect(() => {
-      fetch('/api/users/')
-      .then(res => res.json())
-      .then(users => users.map((user)=>props.state.users.push(user)))
-  },[])
-
-  // console.log(props.state.users)
-  // debugger
-
+    fetch('/api/users/')
+    .then(res => res.json())
+    .then(users => users.map((user)=>props.state.users.push(user)))
+},[])
   return (
       <div className="App">
         <Applogo src={logo}  alt="logo" />
@@ -27,15 +23,15 @@ export default function App(props){
         <div className='content'>
         <Route path='/users' 
           exact render = {()=>
-          <Mainbox users={props.state.users}/>
-          }/>
+          <Mainbox 
+          users={props.state.users}/>}
+          />
         <Route path='/tasks' render = {()=>
           <Tasksbox 
           users={props.state.users} 
-          tasks={props.state.tasks}
-          addTask={props.addTask}
-          newTaskText={props.state.newTaskText} 
-          updateNewTaskText={props.updateNewTaskText}/>
+          tasks={props.state.taskBoard.tasks}
+          dispatch={props.dispatch}
+          newTaskText={props.state.taskBoard.newTaskText}/>
           }/>
         </div>
       </div>

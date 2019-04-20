@@ -5,7 +5,7 @@ import m from './Mainbox.module.css'
 export default function Mainbox(props){
     return(
         <div className={m.mainbox}>
-        <Board users={props.users}/>
+        <Board users={props.users} dispatch={props.dispatch}/>
         </div>
     )
 }

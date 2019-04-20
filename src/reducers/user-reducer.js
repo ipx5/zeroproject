@@ -1,6 +1,6 @@
 import state from './state'
 
-export default function (state, action){
+export default function userReducer (state, action){
     switch (action.type){
         case 'FETCH_USER':
             return[...state, action.payload.data];

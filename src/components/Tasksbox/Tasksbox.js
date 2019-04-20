@@ -9,10 +9,9 @@ export default function Tasksbox(props){
         this is tasksbox
             <Usersboard users={props.users}/>
             <Tasksboard 
-                tasks={props.tasks} 
-                addTask={props.addTask} 
-                newTaskText={props.newTaskText}
-                updateNewTaskText={props.updateNewTaskText}
+                tasks={props.tasks}
+                newTaskText={props.newTaskText} 
+                dispatch={props.dispatch}
             />
         </div>
     )

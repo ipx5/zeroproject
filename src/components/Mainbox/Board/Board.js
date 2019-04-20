@@ -5,7 +5,7 @@ import b from './Board.module.css'
 export default function Board(props){
     let cardsElement = props.users.map((user) =>
     <Card className={b.card} key={user.id} city={user.city}
-    age={user.age} name={user.name} knowledge={user.knowledge}/>)
+    age={user.age} name={user.name} knowledge={user.knowledge} dispatch={props.dispatch}/>)
     return(
         <div className={b.board}>
         {cardsElement}
