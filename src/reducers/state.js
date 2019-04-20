@@ -17,38 +17,37 @@ let store={
         ],
         newTaskText:'enter a useful task',
     },
-    renderEntireTree: (){
+    getState(){
+        return this._state
+    },
+    _callSubscriber(){
         console.log('state changed')
     },
-    addTask:(){
+    addTask(){
         let newTask={
             id: '5',
-            name:`task${state.tasks.length+1}`,
-            text: `${state.newTaskText}${state.tasks.length+1}`
+            name:`task${this._state.tasks.length+1}`,
+            text: `${this._state.newTaskText}${this._state.tasks.length+1}`
         }
-        state.tasks.push(newTask);
-        state.newTaskText=''
-        renderEntireTree(state)
+        this._state.tasks.push(newTask);
+        this._state.newTaskText=''
+        this._callSubscriber(this._state)
+    },
+    updateNewTaskText(newText){
+        state.newTaskText = newText;
+        this._callSubscriber(this._state)
+    },
+    subscribe(observer){
+        this._callSubscriber=observer;
+    },
+    fetchUsers(){
+        const response = axios.get('/api/users');
+        console.log(response)
+        response.map((res)=>this._state.users.push(res))
     }
-
-
 }
 
-export const 
-export const updateNewTaskText =(newText)=>{
-    state.newTaskText = newText;
-    renderEntireTree(state)
-}
 
-export const subscribe=(observer)=>{
-    renderEntireTree=observer;
-}
+export default store;
 
-export function fetchUsers(){
-    const response = axios.get('/api/users');
-    console.log(response)
-    response.map((res)=>state.users.push(res))
-}
-
-export default state;
-
+window.store=store
