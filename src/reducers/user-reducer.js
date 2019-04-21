@@ -11,7 +11,7 @@ export default function userReducer (state=initialState, action){
         let newName={
             name:`${state.newNameText}`
         }
-        axios.post(`api/users`)
+        axios.post(`api/users`,{newName})
         .then(res => {
             console.log(res);
             console.log(res.data);

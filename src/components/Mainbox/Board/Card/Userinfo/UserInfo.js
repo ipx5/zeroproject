@@ -8,7 +8,7 @@ export default function UserInfo(props){
     <div>{know.language}</div> 
     <div className={u.fw}>{know.frameworks}</div>
     </div>)
-    
+    let state= props.store.getState()
     let nameElement = React.createRef()
 
     let updateNameText=(text)=>{
@@ -34,7 +34,7 @@ export default function UserInfo(props){
         <form onSubmit={addName}>
           <label>
             Person Name:
-            <input ref={nameElement} type="text" name="name" onChange={onNameChange} value={props.name}/>
+            <input ref={nameElement} type="text" name="name" onChange={onNameChange} value={state.userBoard.newNameText}/>
           </label>
           <button type="submit">Add</button>
         </form>
