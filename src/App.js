@@ -13,7 +13,7 @@ export default function App(props){
   useEffect(() => {
     fetch('/api/users/')
     .then(res => res.json())
-    .then(users => users.map((user)=>props.state.users.push(user)))
+    .then(users => users.map((user)=>props.state.userBoard.users.push(user)))
 },[])
   return (
       <div className="App">
@@ -24,14 +24,15 @@ export default function App(props){
         <Route path='/users' 
           exact render = {()=>
           <Mainbox 
-          users={props.state.users}/>}
-          />
+          userBoard={props.state.userBoard}
+          store={props.store}
+          />}/>
         <Route path='/tasks' render = {()=>
           <Tasksbox 
-          users={props.state.users} 
-          tasks={props.state.taskBoard.tasks}
-          dispatch={props.dispatch}
-          newTaskText={props.state.taskBoard.newTaskText}/>
+          userBoard={props.state.userBoard} 
+          store={props.store}
+
+          />
           }/>
         </div>
       </div>

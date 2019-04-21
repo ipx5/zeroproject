@@ -1,5 +1,6 @@
 import React from 'react'
 import u from './Userinfo.module.css'
+import {addNameActionCreator, updateNewNameTextActionCreator} from '../../../../../reducers/user-reducer'
 
 export default function UserInfo(props){
     let knowledgeElement = props.knowledge.map((know) =>
@@ -8,8 +9,36 @@ export default function UserInfo(props){
     <div className={u.fw}>{know.frameworks}</div>
     </div>)
     
+    let nameElement = React.createRef()
+
+    let updateNameText=(text)=>{
+        let action= updateNewNameTextActionCreator(text); 
+        props.store.dispatch(action)}
+
+    let onAddName=()=>{
+        props.store.dispatch(addNameActionCreator())
+    }
+    
+    let addName=()=>{
+        onAddName()
+    }
+
+    let onNameChange= () =>{
+        let text = nameElement.current.value
+        updateNameText(text)
+    } 
+        
     return(
         <div className={u.userinfo}>
+        <div>
+        <form onSubmit={addName}>
+          <label>
+            Person Name:
+            <input ref={nameElement} type="text" name="name" onChange={onNameChange} value={props.name}/>
+          </label>
+          <button type="submit">Add</button>
+        </form>
+        </div>
             <div>
                 <label>Name: </label>
                 <span contentEditable={true}>{props.name}</span>

@@ -1,5 +1,21 @@
 
-export default function taskReducer(state, action) {
+let initialState={
+    newTaskText:'enter a useful task',
+    tasks : [
+        {
+            id:'1',
+            name:'task1',
+            text:'text1'
+        },
+        {
+            id:'2',
+            name:'task2',
+            text:'text2'
+        }
+    ]
+}
+
+export default function taskReducer(state=initialState, action) {
     switch (action.type){
         case 'ADD_TASK':
             let newTask={

@@ -1,8 +1,8 @@
 .card{
     display: flex;
     margin: 5px;
-    height: 270px;
-    width: 200px;
+    height: 300px;
+    width: 220px;
     border-radius: 10%;
     background-color: #253031;
     justify-content: flex-start;

@@ -2,9 +2,10 @@ import React from 'react'
 import UserInfo from './Userinfo/UserInfo';
 import c from './Card.module.css'
 
+
 export default function Card(props){
 
-    
+
     return(
         <div className={c.card}>
             <UserInfo 
@@ -13,7 +14,7 @@ export default function Card(props){
                 city={props.city} 
                 age={props.age}
                 knowledge={props.knowledge}
-                dispatch={props.dispatch}
+                store={props.store}
                 />
         </div>
     )

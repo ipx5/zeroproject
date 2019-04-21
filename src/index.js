@@ -1,4 +1,4 @@
-import store from './reducers/state'
+import store from './reducers/redux_store'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -10,6 +10,7 @@ let renderEntireTree=(state)=>{ReactDOM.render(
         <App 
         state={state} 
         dispatch={store.dispatch.bind(store)}
+        store={store}
         />
     </BrowserRouter>
     // </Provider>
@@ -18,5 +19,7 @@ let renderEntireTree=(state)=>{ReactDOM.render(
 
 renderEntireTree(store.getState()); 
 
-store.subscribe(renderEntireTree);
+store.subscribe(()=>{
+    let state= store.getState();
+    renderEntireTree(state)});
 
